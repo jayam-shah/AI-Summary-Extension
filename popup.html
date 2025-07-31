@@ -1,0 +1,159 @@
+<html lang="en">
+    <head>
+        <title>AI Summarizer</title>
+        <style>
+            /* Popup container & background */
+            html, body {
+              width: 360px;
+              margin: 0;                     /* remove auto-centering */
+              padding: 16px;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+              background: linear-gradient(135deg, #eef2f7 0%, #dfe4ea 100%);
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;       /* align everything to the left */
+            }
+          
+            /* Title styling */
+            h2 {
+              width: 100%;
+              margin: 0 0 16px;
+              text-align: left;             /* left‑align the heading */
+              font-size: 1.4rem;
+              font-weight: 700;
+              color: #2c3e50;
+              border-bottom: 1px solid rgba(44,62,80,0.2);
+              padding-bottom: 8px;
+            }
+          
+            /* Controls row */
+            .options {
+              display: flex;
+              gap: 8px;
+              margin-bottom: 16px;
+              justify-content: flex-start;  /* keep controls flush left */
+              width: 100%;
+            }
+          
+            /* Hide native dropdown arrow */
+            select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+            }
+            select::-ms-expand {
+              display: none;
+            }
+          
+            /* Custom select styling with custom arrow */
+            select {
+              flex: none;
+              width: 120px;
+              padding: 8px 12px;
+              font-size: 0.95rem;
+              border: none;
+              border-radius: 6px;
+              background: #ffffff;
+              box-shadow: inset 0 2px 4px rgba(0,0,0,0.08);
+              cursor: pointer;
+              transition: box-shadow 0.2s ease, background-color 0.2s ease;
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23667eea' stroke-width='2'/%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: right 12px center;
+              background-size: 12px 8px;
+              padding-right: 36px;
+            }
+            select:hover {
+              box-shadow: inset 0 2px 6px rgba(0,0,0,0.12);
+              background-color: rgba(102, 126, 234, 0.05);
+            }
+            select:focus {
+              outline: none;
+              box-shadow: 0 0 0 2px rgba(102,126,234,0.4), inset 0 2px 4px rgba(0,0,0,0.08);
+            }
+          
+            /* Buttons */
+            button {
+              flex: none;
+              padding: 8px 16px;
+              font-size: 0.95rem;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+              font-weight: 600;
+              box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+              transition: transform 0.1s ease, box-shadow 0.2s ease;
+            }
+            #summarize {
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              color: #fff;
+            }
+            #summarize:hover {
+              transform: translateY(-1px);
+              box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+            }
+            #copy-btn {
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: #fff;
+            }
+            #copy-btn:hover {
+              transform: translateY(-1px);
+              box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+            }
+          
+            /* Result area */
+            #result {
+              width: 100%;                  /* span full width */
+              margin: 0;                    /* flush left */
+              background: #ffffff;
+              border-radius: 6px;
+              padding: 12px;
+              font-family: Menlo, Consolas, "Courier New", monospace;
+              font-size: 0.9rem;
+              line-height: 1.4;
+              color: #2c3e50;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+              white-space: pre-wrap;
+              max-height: 220px;
+              overflow-y: auto;
+            }
+          
+            /* Loader styles */
+            .loading {
+              display: flex;
+              justify-content: flex-start; /* loader also flush left */
+              align-items: center;
+              height: 100px;
+            }
+            .loader {
+              border: 4px solid rgba(44,62,80,0.1);
+              border-top: 4px solid #4facfe;
+              border-radius: 50%;
+              width: 26px;
+              height: 26px;
+              animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+              to { transform: rotate(360deg); }
+            }
+          </style>
+          
+          
+          
+          
+    </head>
+    <body>
+        <h2>AI Summary</h2>
+        <div class="options">
+            <select id="summary-type">
+                <option value="brief">Brief</option>
+                <option value="detailed">Detailed</option>
+                <option value="Bullets">BulletPoints</option>
+            </select>
+            <button id="summarize">Summarize</button>
+            <button id="copy-btn">Copy</button>
+        </div>
+        <pre id="result">Select a type and click Summarize...</pre>
+        <script src="popup.js"></script>
+    </body>
+</html>

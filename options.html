@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Extensions Options</title>
+    <style>
+        /* Page layout */
+        body {
+          max-width: 420px;
+          margin: 40px auto;
+          padding: 24px;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+          background-color: #f7f9fc;
+          color: #344165;
+        }
+      
+        /* Heading */
+        h1 {
+          margin-bottom: 24px;
+          font-size: 1.8rem;
+          text-align: center;
+          font-weight: 700;
+          color: #2f365f;
+        }
+      
+        /* Label & input */
+        label {
+          display: block;
+          font-size: 1rem;
+          font-weight: 500;
+          margin-bottom: 8px;
+        }
+        input[type="text"] {
+          width: 100%;
+          padding: 10px 12px;
+          font-size: 1rem;
+          border: 1px solid #d1d5db;
+          border-radius: 6px;
+          box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        input[type="text"]:focus {
+          outline: none;
+          border-color: #667eea;
+          box-shadow: 0 0 0 3px rgba(102,126,234,0.2);
+        }
+      
+        /* Paragraph & link */
+        p {
+          font-size: 0.95rem;
+          margin: 16px 0;
+        }
+        a {
+          color: #4facfe;
+          text-decoration: none;
+          font-weight: 500;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      
+        /* Save button */
+        button {
+          display: inline-block;
+          padding: 10px 24px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #fff;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          transition: background 0.2s ease, transform 0.1s ease;
+        }
+        button:hover {
+          transform: translateY(-2px);
+          background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+        }
+      
+        /* Success message */
+        .success-message {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            color: #38a169;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+      
+        @keyframes fadeIn {
+          to { opacity: 1; }
+        }
+      </style>
+      
+</head>
+<body>
+    <h1>AI Summary Extension</h1>
+
+    <div class="form-group">
+        <label for="api-key">Gemini API</label>
+        <input type="text" id="api-key" placeholder="Enter your Gemini Api Key" />
+
+        <p>
+            You can get an API key from 
+            <a href="https://makersuite.google.com/app/apikey" target="_blank">
+                Google AI Studio
+            </a>
+        </p>
+    </div>
+
+    <button id="save-button">Save Settings</button>
+    <p id="success-message" class="success-message">
+        Settings saved successfully!
+    </p>
+
+    <script src="options.js"></script>
+</body>
+</html>
